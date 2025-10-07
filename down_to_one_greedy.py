@@ -12,4 +12,6 @@ def down_to_one_greedy(n):
     print(r"-1")
     return 1 + down_to_one_greedy(n - 1)
 
-print(down_to_one_greedy(int(sys.argv[1])))
+result = down_to_one_greedy(int(sys.argv[1]))
+print("N° of steps:")
+print(result)

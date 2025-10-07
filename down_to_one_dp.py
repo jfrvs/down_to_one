@@ -22,17 +22,17 @@ def down_to_one_dp(n):
         if a > b:
             if b > c:
                 print(r"-1")
-                result = 1 + c
+                result = 1 + down_to_one_dp(n - 1)
             else:
                 print(r"\2")
-                result = 1 + b
+                result = 1 + down_to_one_dp(n / 2)
         else:
             if a > c:
                 print(r"-1")
-                result = 1 + c
+                result = 1 + down_to_one_dp(n - 1)
             else:
                 print(r"\3")
-                result = 1 + a
+                result = 1 + down_to_one_dp(n / 3)
         return result
     
     if n % 3 == 0:
@@ -42,10 +42,10 @@ def down_to_one_dp(n):
 
         if a > c:
             print(r"-1")
-            result = 1 + c
+            result = 1 + down_to_one_dp(n - 1)
         else:
             print(r"\3")
-            result = 1 + a
+            result = 1 + down_to_one_dp(n / 3)
         return result
     
     if n % 2 == 0:
@@ -54,14 +54,16 @@ def down_to_one_dp(n):
             c = down_to_one_dp(n - 1)
         if b > c:
             print(r"-1")
-            result = 1 + c
+            result = 1 + down_to_one_dp(n - 1)
         else:
             print(r"\2")
-            result = 1 + b
+            result = 1 + down_to_one_dp(n / 2)
         return result
     
     print(r"-1")
     result = 1 + down_to_one_dp(n - 1)
     return result
 
-print(down_to_one_dp(int(sys.argv[1])))
+result = down_to_one_dp(int(sys.argv[1]))
+print("N° of steps:")
+print(result)
